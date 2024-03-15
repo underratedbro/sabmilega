@@ -7,3 +7,5 @@ git add . (all file for suicide)
 hello bhai 
 
 ~/OneDrive/Desktop/Code/sabmilega
+
+git diff (to see changes in code)
