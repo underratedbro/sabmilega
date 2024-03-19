@@ -1,0 +1,58 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  List Wallpaperimage=["images/wallpaper1.jpg","images/wallpaper2.jpg","images/wallpaper3.jpg"];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        margin: EdgeInsets.only(top: 60.0, left: 20, right: 20.0),
+        child: Column(children: [
+        Row(
+          children: [
+            Material(
+              elevation: 5.0,
+              borderRadius: BorderRadius.circular(60),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(60),
+                  child: Image.asset("images/boy.jpg", height: 50, width: 50, fit: BoxFit.cover,)),
+            ),
+            SizedBox(width: 80,),
+            Text("Wallvi",style: TextStyle(color: Colors.black, fontSize: 28.0, fontWeight: FontWeight.bold, fontFamily: 'Poppins' ),),
+
+
+          ],
+        ),
+          SizedBox(height: 30.0,),
+          CarouselSlider.builder(itemCount: Wallpaperimage.length, itemBuilder: (context, index, realIndex){
+                final res= Wallpaperimage[index];
+                return buildImage (res, index);
+              }, options: CarouselOptions(
+                  height: MediaQuery.of(context).size.height/1.5,
+                  viewportFraction: 1,
+                  enlargeCenterPage: true,
+                  enlargeStrategy: CenterPageEnlargeStrategy.height
+              ))
+
+        ],),),
+    );
+  }
+
+  Widget buildImage(String urlImage, int index)=>Container(
+    height: MediaQuery.of(context).size.height/1.5,
+    width: MediaQuery.of(context).size.width,
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(30),
+        child: Image.asset(urlImage, fit: BoxFit.cover,)),
+  );
+}
