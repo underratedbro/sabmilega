@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,7 +12,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  List Wallpaperimage=["images/wallpaper1.jpg","images/wallpaper2.jpg","images/wallpaper3.jpg"];
+  List Wallpaperimage=[
+    "images/wallpaper1.jpg",
+    "images/wallpaper2.jpg",
+    "images/wallpaper3.jpg"
+  ];
+
+  int activeIndex=0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,18 +46,34 @@ class _HomeState extends State<Home> {
           CarouselSlider.builder(itemCount: Wallpaperimage.length, itemBuilder: (context, index, realIndex){
                 final res= Wallpaperimage[index];
                 return buildImage (res, index);
+
               }, options: CarouselOptions(
+
+              autoPlay: true,
+
                   height: MediaQuery.of(context).size.height/1.5,
                   viewportFraction: 1,
                   enlargeCenterPage: true,
-                  enlargeStrategy: CenterPageEnlargeStrategy.height
-              ))
+                  enlargeStrategy: CenterPageEnlargeStrategy.height, onPageChanged: (index, reason){
+                setState(() {
+                  activeIndex=index;
+                });
+          } )),
+                  SizedBox(height: 20,),
+                  Center(child: buildIndicator()),
 
         ],),),
     );
   }
 
+  Widget buildIndicator()=> AnimatedSmoothIndicator(activeIndex: activeIndex, count: 3, effect: SlideEffect(
+    dotWidth: 15, dotHeight: 15, activeDotColor: Colors.lightBlueAccent
+  ),);
+
   Widget buildImage(String urlImage, int index)=>Container(
+
+    // margin: EdgeInsets.only(left: 20),
+
     height: MediaQuery.of(context).size.height/1.5,
     width: MediaQuery.of(context).size.width,
     child: ClipRRect(
