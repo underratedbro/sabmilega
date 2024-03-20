@@ -37,12 +37,19 @@ class _HomeState extends State<Home> {
                   child: Image.asset("images/boy.jpg", height: 50, width: 50, fit: BoxFit.cover,)),
             ),
             SizedBox(width: 80,),
-            Text("Wallvi",style: TextStyle(color: Colors.black, fontSize: 28.0, fontWeight: FontWeight.bold, fontFamily: 'Poppins' ),),
+            Text(
+              "Wallvi",
+              style: TextStyle(color: Colors.black,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Poppins' ),
+            ),
 
 
           ],
         ),
           SizedBox(height: 30.0,),
+
           CarouselSlider.builder(itemCount: Wallpaperimage.length, itemBuilder: (context, index, realIndex){
                 final res= Wallpaperimage[index];
                 return buildImage (res, index);
