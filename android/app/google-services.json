@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "842792440088",
+    "project_id": "wallvi-97f67",
+    "storage_bucket": "wallvi-97f67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842792440088:android:61a47b42fc48a185b3ce6d",
+        "android_client_info": {
+          "package_name": "com.example.sabmilega"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuq0m7B7_5gssPgWt2HKHqRuJ6i_jrEa0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
